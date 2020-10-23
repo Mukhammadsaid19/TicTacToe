@@ -159,7 +159,7 @@ public class TicTacToe {
             for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE; j++) {
                     if (board[i][j] == Value.EMPTY){
-                        board[i][j] = Value.X;
+                        board[i][j] = Value.O;
                         bestScore = Math.max(bestScore, minimax(depth + 1, !isMax));
                         board[i][j] = Value.EMPTY;
                     }
@@ -175,7 +175,7 @@ public class TicTacToe {
             for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE; j++) {
                     if (board[i][j] == Value.EMPTY) {
-                        board[i][j] = Value.O;
+                        board[i][j] = Value.X;
                         bestScore = Math.min(bestScore, minimax(depth + 1, !isMax));
                         board[i][j] = Value.EMPTY;
                     }
@@ -200,7 +200,7 @@ public class TicTacToe {
                 if (board[i][j] == Value.EMPTY){
                     board[i][j] = Value.O;
 
-                    int moveScore = minimax(0, true);
+                    int moveScore = minimax(0, false);
                     board[i][j] = Value.EMPTY;
 
                     if (bestScore < moveScore){
